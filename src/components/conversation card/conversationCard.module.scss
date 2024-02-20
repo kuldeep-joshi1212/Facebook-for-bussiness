@@ -1,0 +1,46 @@
+$mainColor: #004e96;
+$secondaryColor: white;
+$fillColor:lightblue;
+
+.card{
+
+}
+.card:hover{
+  background-color: #E0F4FF;
+}
+.upper{
+  display: flex;
+
+}
+.upperStart{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+
+}
+.upperMiddle{
+  width: 80%;
+  font-size: small;
+  font-weight: 600;
+  //margin-left: 10%;
+}
+.source{
+  font-weight: 500;
+}
+.upperEnd {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lower{
+  width: 100%;
+  padding: 3% 5%;
+}
+.lowerStart{
+  font-size: small;
+  font-weight: 500;
+}
+.lowerEnd{
+  color:slategray;
+}

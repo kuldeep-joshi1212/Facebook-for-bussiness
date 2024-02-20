@@ -1,0 +1,35 @@
+$mainColor: #004e96;
+$secondaryColor: white;
+$fillColor:lightblue;
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-bottom: 2px solid lightgray;
+  span{
+    width: 80%;
+    font-size: 2.3vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  svg{
+    width: 6%;
+    height: auto;
+    color: grey;
+    margin: 0 2%;
+    padding-left: 10px;
+    stroke-width: 2.5px;
+
+  }
+}
+.main{
+  height: 95vh;
+  background-color: $secondaryColor;
+}

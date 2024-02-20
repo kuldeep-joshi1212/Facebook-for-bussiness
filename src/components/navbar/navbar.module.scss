@@ -1,0 +1,38 @@
+$mainColor: #004e96;
+$secondaryColor: white;
+$fillColor:lightblue;
+
+.navbar{
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-evenly;
+  align-content:space-between;
+
+}
+.section{
+  height: 50vh;
+}
+.icons{
+
+}
+.icon{
+  background-color: $mainColor;
+  color: $secondaryColor;
+  padding: 25%;
+}
+
+.active{
+  background-color: $secondaryColor;
+  color:$mainColor;
+  fill: none;
+}
+.picture{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}

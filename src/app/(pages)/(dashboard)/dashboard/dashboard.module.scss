@@ -1,0 +1,26 @@
+$mainColor: #004e96;
+$secondaryColor: white;
+
+.pageDashboard{
+  display: grid;
+  grid-template-areas:'navbar conversations  messages profile';
+  grid-template-columns: 1fr 5fr 18fr 7fr;
+
+
+}
+
+#navbar{
+  grid-area: navbar;
+  background-color:$mainColor ;
+  height:100vh;
+}
+#conversations{
+  grid-area: conversations;
+}
+#messages{
+  grid-area: messages;
+}
+#profile{
+  grid-area: profile;
+  background-color: yellowgreen;
+}
