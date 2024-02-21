@@ -7,7 +7,7 @@ import {FormEvent} from "react";
 
 
 export default  function login() {
-    const router = useRouter()
+
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
@@ -23,7 +23,7 @@ export default  function login() {
         })
 
         if (response.ok) {
-            router.push('/integration')
+
         } else {
             // todo:Handle errors
         }

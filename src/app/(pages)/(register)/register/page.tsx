@@ -4,7 +4,7 @@ import {useRouter} from "next/navigation";
 import {FormEvent} from "react";
 
 export default function register() {
-    const router=useRouter()
+
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
@@ -20,7 +20,7 @@ export default function register() {
         })
 
         if (response.ok) {
-            router.push('/integration')
+
         } else {
             // todo:Handle errors
         }
@@ -30,7 +30,7 @@ export default function register() {
             <div className={styles.pageRegister}>
                 <div className={styles.form}>
                     <h2>Login to your account</h2>
-                    <form className={styles.registerForm} onSubmit={handleSubmit} naction="" method="post">
+                    <form className={styles.registerForm}   method="post">
                         <div className={styles.formGroup}>
                             <label className={styles.label}>Username</label>
                             <input className={styles.input} name="username" type="text" placeholder="Username"/>
