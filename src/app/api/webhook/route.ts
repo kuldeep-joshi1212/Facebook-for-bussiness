@@ -1,28 +1,21 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import {NextResponse} from "next/server";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === 'POST') {
-        try {
-            // Ensure that the request contains a JSON body
-            const contentType = req.headers['content-type'];
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Invalid Content-Type. Must be application/json.');
-            }
+export async function GET(req:Request) {
+    const{hub} =await req.json();
 
-            // Parse the incoming JSON payload
-            const payload = req.body;
-            console.log('Received webhook payload:', payload);
 
-            // Handle the webhook payload here
-            // Example: Update database, send notifications, etc.
-
-            res.status(200).end();
-        } catch (error) {
-            console.error('Error processing webhook:', error);
-            res.status(500).json({ error: 'An error occurred while processing the webhook.' });
+    // Check if a token and mode is in the query string of the request
+    if (hub.mode && hub.token) {
+        // Check the mode and token sent is correct
+        if (hub.mode === "subscribe" && hub.token === process.env.verifyToken) {
+            // Respond with the challenge token from the request
+            console.log("WEBHOOK_VERIFIED");
+            return NextResponse.json(hub.challenge,{status:200});
+        } else {
+            // Respond with '403 Forbidden' if verify tokens do not match
+            return NextResponse.json({status:403});
         }
-    } else {
-        res.status(405).end(); // Method Not Allowed
     }
+
 }
-export {handler as GET,handler as POST};

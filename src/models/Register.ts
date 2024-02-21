@@ -9,5 +9,5 @@ const RegisterSchema=new Schema(
         timestamps: true
     }
 );
-const Register=mongoose.model.Register || mongoose.model("Register",RegisterSchema);
+const Register=mongoose.model("Register",RegisterSchema);
 export default Register;
