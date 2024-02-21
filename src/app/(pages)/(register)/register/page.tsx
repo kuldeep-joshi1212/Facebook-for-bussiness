@@ -19,6 +19,10 @@ export default function register() {
                             <label className={styles.label}>Password</label>
                             <input className={styles.input} name="password" type="password" placeholder="Password"/>
                         </div>
+                        <div className={styles.remember}>
+                            <input type={"checkbox"}/>
+                            <span> Remember Me</span>
+                        </div>
                         <div className={styles.formGroup}>
                             <button className={styles.submitButton} type="submit">Register</button>
                             <div className={styles.center}>Already have an account <a href="">Login</a></div>

@@ -14,9 +14,8 @@ $secondaryColor: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:2rem;
   height: 50%;
-  width: 30%;
+  width: 20%;
   align-self: center;
   background-color: $secondaryColor;
   border-radius: 1rem;
@@ -24,36 +23,44 @@ $secondaryColor: white;
   *{
     margin-top: 1rem;
   }
+  h2{
+    height: 1%;
+  }
 
 }
 .formGroup{
   display: flex;
   flex-direction: column;
   width: 100%;
+  input{
+    padding: 1rem;
+  }
 
+}
+.remember{
+  width: 100%;
+  display: flex;
+  gap:5px;
 }
 .input{
   width: 100%;
   border-radius: 5px;
-  height: 2rem;
+  height: 2.5rem;
+  border: 1px solid grey;
 }
 .submitButton{
   border-radius: 5px;
   background-color: $mainColor;
   color: white;
-  height: 1.5rem;
+  height: 3rem;
+  border: none;
 }
 .loginForm{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-
-  .input{
-
-  }
 }
 .center{
+  margin-top: 2rem;
   text-align: center;
 }
