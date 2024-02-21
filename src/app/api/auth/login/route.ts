@@ -1,14 +1,14 @@
 import {NextResponse} from "next/server";
 import {connect} from "../../../../../utils/mongoConnection";
+import User from "@/models/User";
 
 export async function POST(req: Request) {
     try{
-        const {User}=await connect();
-
         const{email, password} = await req.json();
-
-
-    }catch{
-
+        await connect();
+        await User.create({email, password});
+        return NextResponse.json({status: 200});
+    }catch (e) {
+        return NextResponse.json({status: 400});
     }
 }

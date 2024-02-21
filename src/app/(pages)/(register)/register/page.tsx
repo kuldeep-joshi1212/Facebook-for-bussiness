@@ -1,12 +1,36 @@
+"use client"
 import styles from "./register.module.scss"
+import {useRouter} from "next/navigation";
+import {FormEvent} from "react";
 
 export default function register() {
+    const router=useRouter()
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+
+        const formData = new FormData(event.currentTarget)
+        const username=formData.get('username')
+        const email = formData.get('email')
+        const password = formData.get('password')
+
+        const response = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username,email, password }),
+        })
+
+        if (response.ok) {
+            router.push('/integration')
+        } else {
+            // todo:Handle errors
+        }
+    }
     return(
         <>
             <div className={styles.pageRegister}>
                 <div className={styles.form}>
                     <h2>Login to your account</h2>
-                    <form className={styles.registerForm} action="" method="post">
+                    <form className={styles.registerForm} onSubmit={handleSubmit} naction="" method="post">
                         <div className={styles.formGroup}>
                             <label className={styles.label}>Username</label>
                             <input className={styles.input} name="username" type="text" placeholder="Username"/>
@@ -24,7 +48,7 @@ export default function register() {
                             <span> Remember Me</span>
                         </div>
                         <div className={styles.formGroup}>
-                            <button className={styles.submitButton} type="submit">Register</button>
+                            <button className={styles.submitButton}  type="submit">Register</button>
                             <div className={styles.center}>Already have an account <a href="">Login</a></div>
                         </div>
                     </form>
