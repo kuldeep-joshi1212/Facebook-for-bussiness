@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import {NextResponse} from "next/server";
 
 export async function GET(req:Request) {
+    console.log(req)
     const{hub} =await req.json();
 
 
