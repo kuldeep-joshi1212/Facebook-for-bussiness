@@ -15,7 +15,7 @@ export async function GET(req:Request,res:Response) {
         if (mode === "subscribe" && token === process.env.verifyToken) {
             // Respond with the challenge token from the request
             console.log("WEBHOOK_VERIFIED");
-
+            console.log({"challenge":challenge})
             return NextResponse.json({"challenge":challenge},{status:200});
         } else {
             // Respond with '403 Forbidden' if verify tokens do not match
