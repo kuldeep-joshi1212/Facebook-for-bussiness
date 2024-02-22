@@ -16,7 +16,8 @@ export async function GET(req:Request,res:Response) {
             // Respond with the challenge token from the request
             console.log("WEBHOOK_VERIFIED");
             console.log({"challenge":challenge})
-            return NextResponse.json({"challenge":challenge},{status:200});
+            // return NextResponse.json(challenge,{status:200});
+            return new NextResponse(challenge,{status:200,headers:{'content-type':'text/html'}});
         } else {
             // Respond with '403 Forbidden' if verify tokens do not match
             return NextResponse.json({status:403});
