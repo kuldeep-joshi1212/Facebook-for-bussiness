@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import {NextResponse} from "next/server";
 
-export async function GET(req:NextApiRequest,res:NextApiResponse)
+export async function GET(req:Request)
 
 {
     // console.log(req)
@@ -19,6 +19,7 @@ export async function GET(req:NextApiRequest,res:NextApiResponse)
             console.log("WEBHOOK_VERIFIED");
             console.log({"challenge": challenge})
             // return NextResponse.json(challenge,{status:200});
+            // @ts-ignore
             return new NextResponse(parseInt(challenge), {status: 200, headers: {'content-type': 'text/html'}});
         } else {
             // Respond with '403 Forbidden' if verify tokens do not match
