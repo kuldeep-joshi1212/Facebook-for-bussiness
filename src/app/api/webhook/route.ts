@@ -1,12 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import {NextResponse} from "next/server";
 
-export async function GET(req:Request,res:Response) {
-    console.log(req)
-    const{searchParams} =new URL(req.url);
-    const mode=searchParams.get("hub.mode")
-    const token=searchParams.get("hub.verify_token")
-    const challenge=searchParams.get("hub.challenge")
+export async function GET(req:NextApiRequest,res:NextApiResponse)
+
+{
+    // console.log(req)
+    const {searchParams} = new URL(req.url);
+    const mode = searchParams.get("hub.mode")
+    const token = searchParams.get("hub.verify_token")
+    const challenge = searchParams.get("hub.challenge")
 
 
     // Check if a token and mode is in the query string of the request
@@ -15,13 +17,14 @@ export async function GET(req:Request,res:Response) {
         if (mode === "subscribe" && token === process.env.verifyToken) {
             // Respond with the challenge token from the request
             console.log("WEBHOOK_VERIFIED");
-            console.log({"challenge":challenge})
+            console.log({"challenge": challenge})
             // return NextResponse.json(challenge,{status:200});
-            return new NextResponse(challenge,{status:200,headers:{'content-type':'text/html'}});
+            return new NextResponse(parseInt(challenge), {status: 200, headers: {'content-type': 'text/html'}});
         } else {
             // Respond with '403 Forbidden' if verify tokens do not match
-            return NextResponse.json({status:403});
+            return NextResponse.json({status: 403});
         }
     }
+
 
 }
