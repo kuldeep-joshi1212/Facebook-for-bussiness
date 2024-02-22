@@ -49,7 +49,7 @@ export default  function login() {
                     </div>
                     <div className={styles.formGroup}>
                         <button className={styles.submitButton} type="submit">Login</button>
-                        <div className={styles.center}>New to Richpanel? <a href="">Sign up</a></div>
+                        <div className={styles.center}>New to Richpanel? <a href="/register">Sign up</a></div>
                     </div>
                 </form>
             </div>

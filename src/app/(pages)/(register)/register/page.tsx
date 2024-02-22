@@ -49,7 +49,7 @@ export default function register() {
                         </div>
                         <div className={styles.formGroup}>
                             <button className={styles.submitButton}  type="submit">Register</button>
-                            <div className={styles.center}>Already have an account <a href="">Login</a></div>
+                            <div className={styles.center}>Already have an account <a href="/login">Login</a></div>
                         </div>
                     </form>
                 </div>
