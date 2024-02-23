@@ -1,6 +1,25 @@
 "use client"
 import styles from "./navbar.module.scss"
+import {useState} from "react";
+import axios from "axios";
 export const Navbar=()=>{
+    const [picture,setPicture]=useState("");
+    // console.log(process.env.FACEBOOK_TOKEN)
+    async function callAPI(){
+        let endpoint=`https://graph.facebook.com/v19.0/me?fields=id,name,messenger_profile,picture&access_token=${process.env.FACEBOOK_TOKEN}`
+        // console.log(process.env.FACEBOOK_TOKEN)
+        axios.get(endpoint,{})
+            .then((response)=>{
+                setPicture(response.data.picture.data.url)
+            })
+            .catch((error)=>{
+                console.log("oh no")
+            });
+
+
+    }
+    // callAPI();
+    // console.log(picture)
     return(
         <nav className={styles.navbar}>
             <div className={`${styles.icons} ${styles.section}`}>
@@ -39,11 +58,7 @@ export const Navbar=()=>{
             </div>
             <div className={`${styles.picture} ${styles.section}`}>
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                         stroke="currentColor" className={`w-6 h-6 ${styles.icon}`}>
-                        <path strokeLinecap="round" strokeLinejoin="round"
-                              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                    </svg>
+                    <img className={styles.profilePicture} src={picture} alt={picture} />
 
                 </div>
             </div>

@@ -5,7 +5,7 @@
   background-color: #edeef0;
 }
 .header{
-  padding-left: 7%;
+  padding-left: 1%;
   height: 5vh;
   display: flex;
   align-items: center;
@@ -15,7 +15,12 @@
   background-color: white;
 }
 .messages{
-  height: 90%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 1%;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 .chatbox{
   display: flex;

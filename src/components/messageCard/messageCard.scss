@@ -1,0 +1,29 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-content: center;
+  width:60%;
+  border-radius: 4px;
+  margin:1% 0;
+  .user{
+    justify-content: center;
+  }
+}
+.card{
+  width:max-content;
+  max-width: 100%;
+  padding: 1%;
+  border-radius: 4px;
+  background-color: #004e96;
+}
+.left{
+  margin-left: 2%;
+}
+.right{
+  margin-left:auto;
+  margin-right: 2%;
+  div{
+    text-align: right;
+  }
+}
